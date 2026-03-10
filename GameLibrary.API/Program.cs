@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference(options =>
     {
         options.WithTitle("GameLibrary Backend");
-        options.WithTheme(ScalarTheme.Mars);
+        options.WithTheme(ScalarTheme.DeepSpace);
         options.WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
     });
 }
