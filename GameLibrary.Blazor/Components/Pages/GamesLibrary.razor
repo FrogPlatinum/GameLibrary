@@ -1,0 +1,47 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>GamesLibrary</PageTitle>
+
+<h1>My Games</h1>
+
+@if (games == null)
+{
+	<p>Loading..</p>
+}
+else
+{
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>Genre</th>
+                    <th>Status</th>
+                    <th>Time to beat</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var game in games)
+                {
+                    <tr>
+                        <td>@game.Name</td>
+                        <td>@game.Genre</td>
+                        <td>@game.Status</td>
+                        <td>@game.HowLongToBeat</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+@code {
+	private List<Game>? games;
+
+	protected override async Task OnInitializedAsync()
+	{
+		games = await Http.GetFromJsonAsync<List<Game>>("game") ?? [];
+	}
+}
