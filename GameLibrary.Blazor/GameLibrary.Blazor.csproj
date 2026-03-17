@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GameLibrary.Application\GameLibrary.Application.csproj" />
+    <ProjectReference Include="..\GameLibrary.Domain\GameLibrary.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
