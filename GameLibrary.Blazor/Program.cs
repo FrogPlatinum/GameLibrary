@@ -5,11 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
-builder.Services.AddScoped(sp => new HttpClient
-{
-    BaseAddress = new Uri("https://localhost:7072")
-});
 builder.Services.AddScoped<GameService>();
+builder.Services.AddScoped(sp => new HttpClient());
 
 var app = builder.Build();
 

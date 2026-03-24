@@ -1,5 +1,6 @@
 ﻿@page "/"
-@inject HttpClient Http
+@using GameLibrary.Blazor.Services
+@inject GameService GameService
 
 <PageTitle>GamesLibrary</PageTitle>
 
@@ -42,6 +43,6 @@ else
 
 	protected override async Task OnInitializedAsync()
 	{
-		games = await Http.GetFromJsonAsync<List<Game>>("game") ?? [];
+		games = await GameService.GetGamesAsync() ?? [];
 	}
 }
