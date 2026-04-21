@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GameLibrary.Application.Interfaces;
 using GameLibrary.Domain.Entities;
 using GameLibrary.Infrastructure.Data;
-using GameLibrary.Shared.DTOs;
+using GameLibrary.Shared.DTOs.Game;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameLibrary.Infrastructure.Repositories

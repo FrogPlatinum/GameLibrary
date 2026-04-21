@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameLibrary.Domain.Entities;
-using GameLibrary.Shared.DTOs;
+using GameLibrary.Shared.DTOs.Game;
 
 namespace GameLibrary.Application.Interfaces
 {
