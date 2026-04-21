@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLibrary.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLibrary.Blazor", "GameLibrary.Blazor\GameLibrary.Blazor.csproj", "{C059E35C-4705-49A6-A62F-99C47D940343}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4DBB1EB6-003E-411F-AE56-150753C9C8CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C059E35C-4705-49A6-A62F-99C47D940343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C059E35C-4705-49A6-A62F-99C47D940343}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C059E35C-4705-49A6-A62F-99C47D940343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBB1EB6-003E-411F-AE56-150753C9C8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBB1EB6-003E-411F-AE56-150753C9C8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBB1EB6-003E-411F-AE56-150753C9C8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBB1EB6-003E-411F-AE56-150753C9C8CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
