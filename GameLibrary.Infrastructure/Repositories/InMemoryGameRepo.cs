@@ -53,16 +53,6 @@ namespace GameLibrary.Infrastructure.Repositories
                 HowLongToBeat = 40
             },
 
-            // Mewgenics (cat breeding roguelike)
-            new Game
-            {
-                Id = 5,
-                Name = "Mewgenics",
-                Genre = GameGenre.Roguelite,
-                Status = GameStatus.InProgress,
-                HowLongToBeat = 25
-            },
-
             // Clair Obscur: Expedition 33 (turn-based RPG)
             new Game
             {
