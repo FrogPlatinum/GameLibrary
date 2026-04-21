@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GameLibrary.Application.Interfaces;
 using GameLibrary.Domain.Entities;
 using GameLibrary.Infrastructure.Data;
+using GameLibrary.Shared.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameLibrary.Infrastructure.Repositories
@@ -18,32 +19,58 @@ namespace GameLibrary.Infrastructure.Repositories
             _repo = context;
         }
 
-        public async Task<Game> AddAsync(Game entity)
+        public async Task<Game> AddAsync(Game game)
         {
-            await _repo.AddAsync(entity);
+            _repo.Add(game);
             await _repo.SaveChangesAsync();
-            return entity;
+            return game;
         }
 
         public async Task DeleteAsync(int id)
         {
-            await _repo.Games.Where(g => g.Id == id).ExecuteDeleteAsync();
+            var game = await _repo.Games.FindAsync(id);
+            if (game != null)
+            {
+                _repo.Games.Remove(game);
+                await _repo.SaveChangesAsync();
+            }
+        }
+
+        public async Task<GameDTO[]> GetAllAsync()
+        {
+            return await _repo.Games
+                .AsNoTracking()
+                .Select(g => new GameDTO()
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    Genre = g.Genre,
+                    Status = g.Status,
+                    HowLongToBeat = g.HowLongToBeat
+                })
+                .ToArrayAsync();
+        }
+
+        public async Task<GameDTO?> GetByIdAsync(int id)
+        {
+            return await _repo.Games
+                .AsNoTracking()
+                .Where(g => g.Id == id)
+                .Select(g => new GameDTO()
+                {
+                    Id = g.Id,
+                    Name = g.Name,
+                    Genre = g.Genre,
+                    Status = g.Status,
+                    HowLongToBeat = g.HowLongToBeat
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task UpdateAsync(Game game)
+        {
+            _repo.Games.Update(game);
             await _repo.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<Game>> GetAllAsync()
-        {
-           return await _repo.Games.ToListAsync();
-        }
-
-        public async Task<Game?> GetByIdAsync(int id)
-        {
-            return await _repo.Games.FindAsync(id);
-        }
-
-        public async Task UpdateAsync(Game entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }
