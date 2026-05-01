@@ -8,7 +8,7 @@ using GameLibrary.Domain.Enums;
 
 namespace GameLibrary.Domain.Entities
 {
-    public class Game
+    public class Game //Random comment testing workflow
     {
         public int Id { get; set; }
         public string Name { get; set; } 

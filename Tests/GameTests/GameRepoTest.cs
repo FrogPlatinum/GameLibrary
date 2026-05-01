@@ -37,7 +37,7 @@ public class GameRepoTest
             status: GameStatus.InProgress,
             timeToBeat: 100);
 
-        //Act random comment to test workflow
+        //Act
         var createdGame = await _gameRepo.AddAsync(newGame);
 
         //Assert
