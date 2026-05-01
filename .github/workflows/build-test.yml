@@ -19,10 +19,10 @@ jobs:
         dotnet-version: 9.0
     
     - name: Restore dependencies
-      run: dotnet restore GameLibrary.sln
+      run: dotnet restore GameLibrary/GameLibrary.sln
     
     - name: Build
-      run: dotnet build GameLibrary.sln --no-restore
+      run: dotnet build GameLibrary/GameLibrary.sln --no-restore
     
     - name: Test
-      run: dotnet test GameLibrary.sln --no-build --verbosity normal
+      run: dotnet test GameLibrary/GameLibrary.sln --no-build --verbosity normal
