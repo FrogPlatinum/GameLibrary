@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using GameLibrary.Application.Interfaces;
 using GameLibrary.Domain.Entities;
 using GameLibrary.Infrastructure.Data;
-using GameLibrary.Shared.DTOs.Game;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameLibrary.Infrastructure.Repositories
@@ -36,35 +35,14 @@ namespace GameLibrary.Infrastructure.Repositories
             }
         }
 
-        public async Task<GameDTO[]> GetAllAsync()
+        public async Task<IEnumerable<Game>> GetAllAsync()
         {
-            return await _repo.Games
-                .AsNoTracking()
-                .Select(g => new GameDTO()
-                {
-                    Id = g.Id,
-                    Name = g.Name,
-                    Genre = g.Genre,
-                    Status = g.Status,
-                    HowLongToBeat = g.HowLongToBeat
-                })
-                .ToArrayAsync();
+            return await _repo.Games.ToListAsync();
         }
 
-        public async Task<GameDTO?> GetByIdAsync(int id)
+        public async Task<Game?> GetByIdAsync(int id)
         {
-            return await _repo.Games
-                .AsNoTracking()
-                .Where(g => g.Id == id)
-                .Select(g => new GameDTO()
-                {
-                    Id = g.Id,
-                    Name = g.Name,
-                    Genre = g.Genre,
-                    Status = g.Status,
-                    HowLongToBeat = g.HowLongToBeat
-                })
-                .FirstOrDefaultAsync();
+            return await _repo.Games.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task UpdateAsync(Game game)

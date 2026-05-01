@@ -11,9 +11,23 @@ namespace GameLibrary.Domain.Entities
     public class Game
     {
         public int Id { get; set; }
-        public string Name { get; set; } = "Unamed Game";
-        public GameGenre Genre { get; set; } = GameGenre.RPG;
-        public GameStatus Status { get; set; } = GameStatus.NotStarted;
-        public double HowLongToBeat { get; set; } = 1;
+        public string Name { get; set; } 
+        public GameGenre Genre { get; set; } 
+        public GameStatus Status { get; set; }
+        public double? HowLongToBeat { get; set; }
+
+        public Game(int id, string name, GameGenre genre, GameStatus status, double timeToBeat)
+        {
+            Id = id;
+            Name = name;
+            Genre = genre;
+            Status = status;
+            HowLongToBeat = timeToBeat;
+        }
+
+        public Game()
+        {
+            
+        }
     }
 }

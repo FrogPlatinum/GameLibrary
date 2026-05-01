@@ -16,6 +16,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{4DBB1EB6-003E-411F-AE56-150753C9C8CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLibrary.Shared", "GameLibrary.Shared\GameLibrary.Shared.csproj", "{1B9AB796-117A-4002-B1B3-7E198ABA514F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8A5C3EE-1B6D-4BE4-8EE0-CA7F84DA954B} = {B8A5C3EE-1B6D-4BE4-8EE0-CA7F84DA954B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

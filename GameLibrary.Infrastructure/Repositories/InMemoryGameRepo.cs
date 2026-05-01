@@ -22,12 +22,12 @@ namespace GameLibrary.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<GameDTO[]> GetAllAsync()
+        public Task<IEnumerable<Game>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<GameDTO?> GetByIdAsync(int id)
+        public Task<Game?> GetByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
