@@ -18,32 +18,37 @@ namespace GameLibrary.Infrastructure.Repositories
             _repo = context;
         }
 
-        public async Task<Game> AddAsync(Game entity)
+        public async Task<Game> AddAsync(Game game)
         {
-            await _repo.AddAsync(entity);
+            _repo.Add(game);
             await _repo.SaveChangesAsync();
-            return entity;
+            return game;
         }
 
         public async Task DeleteAsync(int id)
         {
-            await _repo.Games.Where(g => g.Id == id).ExecuteDeleteAsync();
-            await _repo.SaveChangesAsync();
+            var game = await _repo.Games.FindAsync(id);
+            if (game != null)
+            {
+                _repo.Games.Remove(game);
+                await _repo.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<Game>> GetAllAsync()
         {
-           return await _repo.Games.ToListAsync();
+            return await _repo.Games.ToListAsync();
         }
 
         public async Task<Game?> GetByIdAsync(int id)
         {
-            return await _repo.Games.FindAsync(id);
+            return await _repo.Games.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task UpdateAsync(Game entity)
+        public async Task UpdateAsync(Game game)
         {
-            throw new NotImplementedException();
+            _repo.Games.Update(game);
+            await _repo.SaveChangesAsync();
         }
     }
 }

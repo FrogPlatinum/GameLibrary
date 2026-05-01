@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameLibrary.Domain.Entities;
 
+
 namespace GameLibrary.Application.Interfaces
 {
     public interface IGameRepository
